@@ -8,7 +8,6 @@
     display: flex;
     width: -webkit-fill-available;
     width: -moz-available;
-    width: fill;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
@@ -36,15 +35,6 @@
     gap: 5rem;
 }
 
-@media (width < 1023px) {
-    .headerBox {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-flow: column wrap;
-        flex-flow: column wrap;
-    }
-}
-
 .headerRight {
     position: relative;
     display: -webkit-box;
@@ -65,7 +55,7 @@
     margin: 0.25rem;
     padding: 0.5rem;
     border: 0px;
-    width: 50%;
+    width: fit-content;
     height: 20rem;
     background-color: rgb(0, 0, 0);
 }
@@ -78,7 +68,8 @@
 }
 
 .headerLeft > img {
-    width: 100%;
+    width: fit-content;
+    height: fit-content;
     -webkit-animation: rotate 5s infinite linear;
     animation: rotate 5s infinite linear;
 }
@@ -114,12 +105,7 @@
     font-weight: 400 !important;
     font-style: normal;
     text-transform: uppercase;
-}
-
-@media (width < 1023px) {
-    .heading {
-        -webkit-text-stroke: 1.5px #f5de19;
-    }
+    text-wrap: nowrap;
 }
 
 .heading:hover,
@@ -143,13 +129,6 @@
     justify-content: space-between;
 }
 
-@media (width < 1023px) {
-    .captionText {
-        top: -1.5rem;
-        left: -0.5rem;
-    }
-}
-
 .cap {
     font-family: "VT323", monospace;
     font-weight: 400;
@@ -157,6 +136,7 @@
     font-size: 2vw;
     padding: 0.5rem;
     color: #f5de19;
+    text-wrap: nowrap;
 }
 
 .bar {
@@ -167,8 +147,29 @@
     color: #af0044;
 }
 
-@media (width < 1023px) {
+@media (width < 1250px) {
     .bar {
         font-size: 1.5rem !important;
+    }
+    .captionText {
+        top: -1rem;
+        left: -1rem;
+    }
+}
+
+@media (width < 1023px) {
+    .headerBox {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: column wrap;
+        flex-flow: column wrap;
+    }
+    .captionText {
+        top: -1.5rem;
+        left: -0.5rem;
+    }
+
+    .heading {
+        -webkit-text-stroke: 1.5px #f5de19;
     }
 }
